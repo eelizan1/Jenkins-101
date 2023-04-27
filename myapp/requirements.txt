@@ -1,2 +1,2 @@
 fire==0.4.0
-requests=2.29.0
+requests==2.29.0
