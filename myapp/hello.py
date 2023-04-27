@@ -16,5 +16,14 @@ def hello(name="World"):
     else:
         return f"Hello {name}! Error while calling the API: {response.status_code}"
 
+def todo(): 
+  response = requests.get('https://jsonplaceholder.typicode.com/todos/1')
+
+if response.status_code == 200:
+    json_data = response.json()
+    print(json_data)
+else:
+    print(f"Error while fetching data: {response.status_code}")
+
 if __name__ == '__main__':
-    fire.Fire(hello)
+    fire.Fire(todo)
