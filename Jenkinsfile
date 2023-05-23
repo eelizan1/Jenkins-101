@@ -33,6 +33,18 @@ pipeline {
                 sh '''
                 echo "doing delivery stuff.."
                 '''
+                sh '''
+                curl --location --request GET 'http://localhost:9001/haymaker/abcoachmark/jsonrpc' \
+                --header 'Content-Type: application/json' \
+                --data-raw '{
+                    "jsonrpc": "2.0",
+                    "method": "abcoachmark-v1.load",
+                    "params": [
+                        "type",
+                        1
+                    ]
+                }'
+                '''
             }
         }
     }
