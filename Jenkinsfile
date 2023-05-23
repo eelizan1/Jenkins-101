@@ -31,7 +31,12 @@ pipeline {
             steps {
                 echo 'Testing API...'
                 sh '''
-                curl --location --request GET 'https://jsonplaceholder.typicode.com/posts/1'
+                curl --location --request GET 'https://mobile-test-adserver-internal-vip.savagebeast.com:9443/haymaker/management/jsonrpc' \
+                --header 'Content-Type: application/json' \
+                --data-raw '{
+                    "jsonrpc": "2.0",
+                    "method": "management-v1.info"
+                }'
                 '''
             }
         }
